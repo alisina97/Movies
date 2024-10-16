@@ -1,4 +1,4 @@
-package ca.alisina.movies;
+package ca.alisina.movies.DomainObject;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
