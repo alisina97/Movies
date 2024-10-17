@@ -1,6 +1,6 @@
 package ca.alisina.movies.Service;
 
-import ca.alisina.movies.DomainObject.Movie;
+import ca.alisina.movies.Model.Movie;
 import ca.alisina.movies.Repository.MovieRepository;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ public class MovieService {
         return movieRepository.findAll();
     }
 
-    public Optional<Movie> findById(ObjectId id) {
-        return movieRepository.findById(id);
+    public Optional<Movie> findById(String id) {
+        return movieRepository.findByImdbId(id);
     }
 }

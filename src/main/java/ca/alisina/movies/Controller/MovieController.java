@@ -1,6 +1,7 @@
 package ca.alisina.movies.Controller;
 
-import ca.alisina.movies.DomainObject.Movie;
+import ca.alisina.movies.Model.Movie;
+import ca.alisina.movies.Model.Review;
 import ca.alisina.movies.Service.MovieService;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +23,8 @@ public class MovieController {
         return new ResponseEntity<List<Movie>>(service.findAllMovies(), HttpStatus.OK);
     }
 
-    @GetMapping("/ {id}")
-    public ResponseEntity<Optional<Movie>> getOneMovie(@PathVariable ObjectId id) {
-        return new ResponseEntity<Optional<Movie>>(service.findById(id), HttpStatus.OK);
+    @GetMapping("/{ImdbId}")
+    public ResponseEntity<Optional<Movie>> getOneMovie(@PathVariable String ImdbId) {
+        return new ResponseEntity<Optional<Movie>>(service.findById(ImdbId), HttpStatus.OK);
     }
-
 }
