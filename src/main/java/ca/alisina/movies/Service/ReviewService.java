@@ -27,12 +27,12 @@ public class ReviewService {
                 .first();
         return review;
     }
-
-    public List<Review> findAllReviews() {
-        return repository.findAll();
-    }
-
-    public Optional<Review> findById(ObjectId id) {
-        return repository.findById(id);
-    }
+//
+//    public List<Review> findAllReviews() {
+//        return repository.findAll();
+//    }
+//
+//    public Optional<Review> findById(ObjectId id) {
+//        return repository.findById(id);
+//    }
 }
