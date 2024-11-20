@@ -1,15 +1,14 @@
-FROM ubuntu:latest AS build
+# Use an official OpenJDK runtime as a parent image
+FROM openjdk:17-jdk-alpine
 
-RUN apt-get update
-RUN apt-get install openjdk-17-jdk -y
-COPY . .
+# Set the working directory in the container
+WORKDIR /app
 
-RUN ./mvnw spring-boot:run
+# Copy the JAR file into the container
+COPY target/*.jar app.jar
 
-FROM openjdk:17-jdk-slim
-
+# Expose the port your application runs on
 EXPOSE 8080
 
-COPY --from=build /build/libs/demo-1.jar app.jar
-
+# Run the JAR file
 ENTRYPOINT ["java", "-jar", "app.jar"]

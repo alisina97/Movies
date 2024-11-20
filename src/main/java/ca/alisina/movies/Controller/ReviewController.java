@@ -24,14 +24,4 @@ public class ReviewController {
 
         return new ResponseEntity<Review>(service.createReview(payload.get("reviewBody"), payload.get("imdbId")), HttpStatus.OK);
     }
-
-    @GetMapping
-    public ResponseEntity<List<Review>> getAllReviews() {
-        return new ResponseEntity<List<Review>>(service.findAllReviews(),HttpStatus.OK);
-    }
-//
-//    @GetMapping("/{id}")
-//    public ResponseEntity<Optional<Review>> getOneReview(@PathVariable ObjectId id) {
-//        return new ResponseEntity<Optional<Review>>(service.findById(id), HttpStatus.OK);
-//    }
 }
